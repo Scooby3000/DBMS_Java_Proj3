@@ -1,7 +1,7 @@
 Enter Unity ID wherever Mentioned:
 
 To Compile all the Classes:
-javac -d . common/*.java info_processing/*.java inventory/*.java analytics/*.java billing/*.java rewards/*.java
+javac -d . common/\*.java info_processing/\*.java inventory/\*.java analytics/\*.java billing/\*.java rewards/\*.java
 
 To run the SETUP (Add the Sample Data):
 java -cp .:/mnt/ncsudrive/d/UnityID/mariadb-java-client-2.3.0.jar common.Setup
