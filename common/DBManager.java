@@ -7,6 +7,8 @@ public class DBManager {
     private static final String password = "200599697";
 
     private static Connection connection = null;
+    private static Statement stmt = null;
+    private static ResultSet result = null;
 
     public static Connection getConnection() throws SQLException {
         if (connection == null || connection.isClosed()) {
@@ -33,7 +35,8 @@ public class DBManager {
     }
 
     public static boolean execute(String sql) {
-        try (Statement stmt = getConnection().createStatement()) {
+        try {
+            stmt = getConnection().createStatement();
             stmt.executeUpdate(sql);
             return true;
         } catch (SQLException e) {
@@ -43,13 +46,17 @@ public class DBManager {
     }
 
     public static ResultSet query(String sql) throws SQLException {
-        Statement stmt = getConnection().createStatement();
-        return stmt.executeQuery(sql);
+        stmt = getConnection().createStatement();
+        result = stmt.executeQuery(sql);
+        return result;
     }
 
     public static void close() {
         try {
             if (connection != null && !connection.isClosed()) connection.close();
+            if (stmt != null) stmt.close();
+            if (result != null) result.close();
+        
         } catch (SQLException e) {
             e.printStackTrace();
         }
