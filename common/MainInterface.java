@@ -35,24 +35,24 @@ public class MainInterface {
                 int choice;
                 switch (staffTitle) {
                     case "Manager":
-                        System.out.println("1. Store Operations\n2. Staff Operations\n3. Inventory Reports\n4. Customer Statistics");
+                        System.out.println("1. Store Operations\n2. Staff Operations\n3. Inventory Reports\n4. Customer Growth Report");
                         choice = Input.getInt("Select an operation");
                         switch (choice) {
                             case 1: info_processing.StoreOperations.main(null); break;
                             case 2: info_processing.StaffOperations.main(null); break;
                             case 3: analytics.StockReportAllStores.main(null); break;
-                            case 4: analytics.CustomerGrowthMonthly.main(null); break;
+                            case 4: analytics.CustomerGrowthReport.main(null); break;
                             default: System.out.println("Invalid option");
                         }
                         break;
                     case "Assistant Manager":
-                    System.out.println("1. Store Operations\n2. Staff Operations\n3. Inventory Reports\n4. Customer Statistics");
+                    System.out.println("1. Store Operations\n2. Staff Operations\n3. Inventory Reports\n4. Customer Growth Report");
                         choice = Input.getInt("Select an operation");
                         switch (choice) {
                             case 1: info_processing.StoreOperations.main(null); break;
                             case 2: info_processing.StaffOperations.main(null); break;
                             case 3: analytics.StockReportAllStores.main(null); break;
-                            case 4: analytics.CustomerGrowthMonthly.main(null); break;
+                            case 4: analytics.CustomerGrowthReport.main(null); break;
                             default: System.out.println("Invalid option");
                         }
                         break;
@@ -88,7 +88,7 @@ public class MainInterface {
                         switch (choice) {
                             case 1: billing.GenerateBills.main(null); break;
                             case 2: rewards.GenerateRewards.main(null); break;
-                            case 3: analytics.SalesReportByDay.main(null); break;
+                            case 3: analytics.SalesReport.main(null); break;
                             default: System.out.println("Invalid option");
                         }
                         break;

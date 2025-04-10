@@ -13,18 +13,21 @@ public class AdminInterface {
                     System.out.println("\n--- Admin Interface ---");
                     System.out.println("1. Store Operations");
                     System.out.println("2. Staff Operations");
-                    System.out.println("3. Inventory Reports");
-                    System.out.println("4. Customer Statistics");
+                    System.out.println("3. Stock Reports by Store");
+                    System.out.println("4. Customer Growth Report");
                     System.out.println("5. Customer Operations");
                     System.out.println("6. Add Inventory");
                     System.out.println("7. Restock Inventory");
                     System.out.println("8. Return Products");
                     System.out.println("9. Transfer Inventory");
-                    System.out.println("10. View Transactions");
+                    System.out.println("10. Manage Transactions");
                     System.out.println("11. Generate Bills");
                     System.out.println("12. Generate Rewards");
                     System.out.println("13. View Sales Reports");
-                    System.out.println("14. Exit");
+                    System.out.println("14. Customer Activity By Time Period");
+                    System.out.println("15. Manage Promotions");
+                    System.out.println("16. Stock Reports by Product");
+                    System.out.println("17. Exit");
 
                     int choice = Input.getInt("Select an operation");
 
@@ -41,7 +44,7 @@ public class AdminInterface {
                             analytics.StockReportAllStores.main(new String[]{String.valueOf(storeID2)});
                             break;
                         case 4:
-                            analytics.CustomerGrowthMonthly.main(null);
+                            analytics.CustomerGrowthReport.main(null);
                             break;
                         case 5:
                             info_processing.CustomerOperations.main(null);
@@ -68,9 +71,19 @@ public class AdminInterface {
                             rewards.GenerateRewards.main(null);
                             break;
                         case 13:
-                            analytics.SalesReportByDay.main(null);
+                            analytics.SalesReport.main(null);
                             break;
                         case 14:
+                            analytics.CustomerActivityByPeriod.main(null);
+                            break;
+                        case 15:
+                            promotions.ApplyDiscount.main(null);
+                            break;
+                        case 16:
+                            analytics.StockReportByProduct.main(null);
+                            break;
+                        case 17:
+
                             continueSession = false;
                             break;
                         default:
