@@ -55,30 +55,70 @@ public class StaffOperations {
                     break;
                 }
 
-                case 2: { // UPDATE STAFF TITLE
+                case 2: { // UPDATE STAFF MEMBER DETAILS
                     int staffID = Input.getInt("Enter staff ID to update");
+                
                     String checkSQL = String.format(
                         "SELECT sm.title FROM StaffMember sm JOIN WorksAt w ON sm.staffID = w.staffID WHERE sm.staffID = %d AND w.storeID = %d",
                         staffID, storeID
                     );
                     ResultSet rs = DBManager.query(checkSQL);
-
+                
                     if (rs.next()) {
                         String title = rs.getString("title");
-                        if (title.equals("Manager")) {
+                        if (title.equalsIgnoreCase("Manager")) {
                             System.out.println("You cannot modify another Manager.");
                         } else {
-                            String newTitle = Input.getString("Enter new title");
-                            String updateSQL = String.format("UPDATE StaffMember SET title = '%s' WHERE staffID = %d", newTitle, staffID);
+                            System.out.println("1. Name\n2. Age\n3. Home Address\n4. Title\n5. Email Address\n6. Phone\n7. Employment Time");
+                            int detail = Input.getInt("Choose what info you want to update");
+                
+                            String newInfo = "";
+                            String column = "";
+                
+                            switch (detail) {
+                                case 1:
+                                    newInfo = Input.getString("Enter new name");
+                                    column = "name";
+                                    break;
+                                case 2:
+                                    newInfo = Input.getString("Enter new age");
+                                    column = "age";
+                                    break;
+                                case 3:
+                                    newInfo = Input.getString("Enter new home address");
+                                    column = "address";
+                                    break;
+                                case 4:
+                                    newInfo = Input.getString("Enter new title (Billing, Cashier, Registration Officer, Warehouse Worker, Manager, Assistant Manager, Other)");
+                                    column = "title";
+                                    break;
+                                case 5:
+                                    newInfo = Input.getString("Enter new email address");
+                                    column = "emailAddress";
+                                    break;
+                                case 6:
+                                    newInfo = Input.getString("Enter new phone");
+                                    column = "phone";
+                                    break;
+                                case 7:
+                                    newInfo = Input.getString("Enter new Employment Time (YYYY-MM-DD HH:MM:SS)");
+                                    column = "employmentTime";
+                                    break;
+                                default:
+                                    System.out.println("Invalid selection.");
+                                    return;
+                            }
+                
+                            String updateSQL = String.format("UPDATE StaffMember SET %s = '%s' WHERE staffID = %d", column, newInfo, staffID);
                             DBManager.execute(updateSQL);
-                            System.out.println("Staff title updated.");
+                            System.out.println("Staff information updated.");
                         }
                     } else {
                         System.out.println("This staff member is not part of this store.");
                     }
                     break;
                 }
-
+                
                 case 3: { // DELETE STAFF
                     int deleteID = Input.getInt("Enter staff ID to delete");
                     String checkSQL = String.format(

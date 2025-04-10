@@ -14,20 +14,21 @@ public class AdminInterface {
                     System.out.println("1. Store Operations");
                     System.out.println("2. Staff Operations");
                     System.out.println("3. Club Member Operations");
-                    System.out.println("4. Manage Transactions");
-                    System.out.println("5. Add Inventory");
-                    System.out.println("6. Restock Inventory");
-                    System.out.println("7. Return Products");
-                    System.out.println("8. Transfer Inventory");
-                    System.out.println("9. Manage Product Promotions");
-                    System.out.println("10. Generate Bills");
-                    System.out.println("11. Generate Rewards");
-                    System.out.println("12. Stock Reports by Store");
-                    System.out.println("13. Stock Reports by Product");
-                    System.out.println("14. Customer Growth Report");
-                    System.out.println("15. Sales Reports");
-                    System.out.println("16. Customer Activity By Time Period");
-                    System.out.println("17. Exit");
+                    System.out.println("4. Supplier Operations");
+                    System.out.println("5. Manage Transactions");
+                    System.out.println("6. Add Inventory");
+                    System.out.println("7. Restock Inventory");
+                    System.out.println("8. Return Products");
+                    System.out.println("9. Transfer Inventory");
+                    System.out.println("10. Manage Product Promotions");
+                    System.out.println("11. Generate Bills");
+                    System.out.println("12. Generate Rewards");
+                    System.out.println("13. Stock Reports by Store");
+                    System.out.println("14. Stock Reports by Product");
+                    System.out.println("15. Customer Growth Report");
+                    System.out.println("16. Sales Reports");
+                    System.out.println("17. Customer Activity By Time Period");
+                    System.out.println("18. Exit");
 
                     int choice = Input.getInt("Select an operation");
     
@@ -43,45 +44,48 @@ public class AdminInterface {
                             info_processing.CustomerOperations.main(null);
                             break;
                         case 4:
-                            analytics.TransactionTotals.main(null);
+                            info_processing.SupplierOperations.main(null);
                             break;
                         case 5:
-                            inventory.AddInventory.main(null);
+                            analytics.TransactionTotals.main(null);
                             break;
                         case 6:
-                            inventory.RestockInventory.main(null);
+                            inventory.AddInventory.main(null);
                             break;
                         case 7:
-                            inventory.ReturnProduct.main(null);
+                            inventory.RestockInventory.main(null);
                             break;
                         case 8:
-                            inventory.TransferInventory.main(null);
+                            inventory.ReturnProduct.main(null);
                             break;
                         case 9:
-                            promotions.ApplyDiscount.main(null);
+                            inventory.TransferInventory.main(null);
                             break;
                         case 10:
-                            billing.GenerateBills.main(null);
+                            promotions.ApplyDiscount.main(null);
                             break;
                         case 11:
-                            rewards.GenerateRewards.main(null);
+                            billing.GenerateBills.main(null);
                             break;
                         case 12:
-                            analytics.StockReportAllStores.main(null);
+                            rewards.GenerateRewards.main(null);
                             break;
                         case 13:
-                            analytics.StockReportByProduct.main(null);
+                            analytics.StockReportAllStores.main(null);
                             break;
                         case 14:
-                            analytics.CustomerGrowthReport.main(null);
+                            analytics.StockReportByProduct.main(null);
                             break;
                         case 15:
-                            analytics.SalesReport.main(null);
+                            analytics.CustomerGrowthReport.main(null);
                             break;
                         case 16:
-                            analytics.CustomerActivityByPeriod.main(null);
+                            analytics.SalesReport.main(null);
                             break;
                         case 17:
+                            analytics.CustomerActivityByPeriod.main(null);
+                            break;
+                        case 18:
                             continueSession = false;
                             break;
                         default:
