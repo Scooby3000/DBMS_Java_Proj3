@@ -78,7 +78,7 @@ public class MainInterface {
                     case "Cashier":
                         System.out.println("1. View Transactions");
                         choice = Input.getInt("Select an operation");
-                        if (choice == 1) analytics.TransactionTotals.main(null);
+                        if (choice == 1) analytics.Transactions.main(null);
                         else System.out.println("Invalid option");
                         break;
 

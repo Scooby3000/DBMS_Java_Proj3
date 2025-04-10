@@ -62,7 +62,7 @@ public class AdminInterface {
                             inventory.TransferInventory.main(null);
                             break;
                         case 10:
-                            analytics.TransactionTotals.main(null);
+                            analytics.Transactions.main(null);
                             break;
                         case 11:
                             billing.GenerateBills.main(null);
