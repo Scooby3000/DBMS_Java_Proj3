@@ -11,11 +11,9 @@ public class StockReportAllStores {
             DBManager.beginTransaction();
 
             int storeID = -1;
-            boolean isAdmin = false;
 
             if (args != null && args.length > 0) {
                 storeID = Integer.parseInt(args[0]);
-                isAdmin = true;
                 System.out.println("[Admin] Viewing stock report for store ID: " + storeID);
             } else {
                 int staffID = Input.getInt("Enter your staff ID to view stock report for your store only");
