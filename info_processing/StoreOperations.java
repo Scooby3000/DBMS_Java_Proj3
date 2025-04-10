@@ -33,7 +33,7 @@ public class StoreOperations {
             }
 
             DBManager.commitTransaction();
-            System.out.println("Operation completed successfully.");
+            System.out.println("Operation completed");
 
         } catch (Exception e) {
             e.printStackTrace();

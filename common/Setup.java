@@ -1,3 +1,5 @@
+//For Adding the Sample Data to the Tables.
+
 package common;
 import java.sql.*;
 
@@ -29,7 +31,7 @@ public class Setup {
 
             // Create tables (reusing the structure from your previous script)
             statement.addBatch("CREATE TABLE Store (storeID INT AUTO_INCREMENT PRIMARY KEY, address VARCHAR(255) NOT NULL, phone VARCHAR(15))");
-            statement.addBatch("CREATE TABLE StaffMember (staffID INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100) NOT NULL, age INT NOT NULL, address TEXT, title ENUM('Billing', 'Cashier', 'Registration Officer', 'Warehouse Worker', 'Manager', 'Assistant Manager', 'Other') NOT NULL DEFAULT 'Other', phone VARCHAR(20), emailAddress VARCHAR(100) UNIQUE, employmentTime INT)");
+            statement.addBatch("CREATE TABLE StaffMember (staffID INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100) NOT NULL, age INT NOT NULL, address TEXT, title ENUM('Billing', 'Cashier', 'Registration Officer', 'Warehouse Worker', 'Manager', 'Assistant Manager', 'Other') NOT NULL DEFAULT 'Other', phone VARCHAR(20), emailAddress VARCHAR(100) UNIQUE, employmentTime INT NOT NULL DEFAULT 0)");
             statement.addBatch("CREATE TABLE ClubMember (customerID INT AUTO_INCREMENT PRIMARY KEY, activeStatus ENUM('Active', 'Inactive') NOT NULL DEFAULT 'Active', firstName VARCHAR(50) NOT NULL, lastName VARCHAR(50) NOT NULL, membershipLevel ENUM('Silver', 'Gold', 'Platinum') NOT NULL DEFAULT 'Silver', emailAddress VARCHAR(100) NOT NULL UNIQUE, phone VARCHAR(15), homeAddress VARCHAR(255), startDate DATE NOT NULL, endDate DATE NOT NULL)");
             statement.addBatch("CREATE TABLE Product (productID INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100) NOT NULL, expiryDate DATE, productionDate DATE)");
             statement.addBatch("CREATE TABLE Supplier (supplierID INT AUTO_INCREMENT PRIMARY KEY, supplierName VARCHAR(100) NOT NULL, phoneNumber VARCHAR(15), emailAddress VARCHAR(100) UNIQUE, location VARCHAR(255))");
