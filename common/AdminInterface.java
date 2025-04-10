@@ -30,7 +30,7 @@ public class AdminInterface {
                     System.out.println("17. Exit");
 
                     int choice = Input.getInt("Select an operation");
-
+    
                     switch (choice) {
                         case 1:
                             info_processing.StoreOperations.main(null);
@@ -40,54 +40,53 @@ public class AdminInterface {
                             info_processing.StaffOperations.main(new String[]{String.valueOf(storeID)});
                             break;
                         case 3:
-                            int storeID2 = Input.getInt("Which store would you like to perform operations on");
-                            analytics.StockReportAllStores.main(new String[]{String.valueOf(storeID2)});
-                            break;
-                        case 4:
-                            analytics.CustomerGrowthReport.main(null);
-                            break;
-                        case 5:
                             info_processing.CustomerOperations.main(null);
                             break;
-                        case 6:
-                            inventory.AddInventory.main(null);
-                            break;
-                        case 7:
-                            inventory.RestockInventory.main(null);
-                            break;
-                        case 8:
-                            inventory.ReturnProduct.main(null);
-                            break;
-                        case 9:
-                            inventory.TransferInventory.main(null);
-                            break;
-                        case 10:
+                        case 4:
                             analytics.TransactionTotals.main(null);
                             break;
-                        case 11:
-                            billing.GenerateBills.main(null);
+                        case 5:
+                            inventory.AddInventory.main(null);
                             break;
-                        case 12:
-                            rewards.GenerateRewards.main(null);
+                        case 6:
+                            inventory.RestockInventory.main(null);
                             break;
-                        case 13:
-                            analytics.SalesReport.main(null);
+                        case 7:
+                            inventory.ReturnProduct.main(null);
                             break;
-                        case 14:
-                            analytics.CustomerActivityByPeriod.main(null);
+                        case 8:
+                            inventory.TransferInventory.main(null);
                             break;
-                        case 15:
+                        case 9:
                             promotions.ApplyDiscount.main(null);
                             break;
-                        case 16:
+                        case 10:
+                            billing.GenerateBills.main(null);
+                            break;
+                        case 11:
+                            rewards.GenerateRewards.main(null);
+                            break;
+                        case 12:
+                            analytics.StockReportAllStores.main(null);
+                            break;
+                        case 13:
                             analytics.StockReportByProduct.main(null);
                             break;
+                        case 14:
+                            analytics.CustomerGrowthReport.main(null);
+                            break;
+                        case 15:
+                            analytics.SalesReport.main(null);
+                            break;
+                        case 16:
+                            analytics.CustomerActivityByPeriod.main(null);
+                            break;
                         case 17:
-
                             continueSession = false;
                             break;
                         default:
                             System.out.println("Invalid option. Please try again.");
+
                     }
                 }
 
