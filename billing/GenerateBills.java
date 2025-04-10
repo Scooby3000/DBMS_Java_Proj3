@@ -55,31 +55,47 @@ public class GenerateBills {
     private static void createNewBill() throws SQLException {
         int supplierID = Input.getInt("Enter supplier ID");
         if (!isValidSupplier(supplierID)) {
-            System.out.println(" Invalid supplier ID. Aborting operation.");
-            DBManager.rollbackTransaction();
-            return;
+            System.out.println("Supplier ID does not exist. Creating a new supplier...");
+    
+            String supplierName = Input.getString("Enter supplier name:");
+            String phoneNumber = Input.getString("Enter phone number (optional):");
+            String emailAddress = Input.getString("Enter email address:");
+            String location = Input.getString("Enter location (optional):");
+    
+            String insertSupplierSQL = String.format(
+                "INSERT INTO Supplier (supplierID, supplierName, phoneNumber, emailAddress, location) " +
+                "VALUES (%d, '%s', %s, '%s', %s)",
+                supplierID,
+                supplierName,
+                phoneNumber.isEmpty() ? "NULL" : "'" + phoneNumber + "'",
+                emailAddress,
+                location.isEmpty() ? "NULL" : "'" + location + "'"
+            );
+    
+            DBManager.execute(insertSupplierSQL);
+            System.out.println("New supplier created with ID " + supplierID);
         }
-
+    
         int staffID = Input.getInt("Enter your staff ID (Billing Staff)");
         if (!isValidBillingStaff(staffID)) {
-            System.out.println(" Invalid billing staff ID. Aborting operation.");
+            System.out.println("Invalid billing staff ID. Aborting operation.");
             DBManager.rollbackTransaction();
             return;
         }
-
+    
         float billAmount = Input.getFloat("Enter bill amount");
         String billDate = Input.getString("Enter bill date (YYYY-MM-DD)");
-
+    
         String insertSQL = String.format(
             "INSERT INTO Bills (bstaffID, supplierId, billDate, billAmount) " +
             "VALUES (%d, %d, '%s', %.2f)",
             staffID, supplierID, billDate, billAmount
         );
-
+    
         DBManager.execute(insertSQL);
-        System.out.println(" New bill added successfully.");
+        System.out.println("New bill added successfully.");
     }
-
+    
     private static boolean isValidSupplier(int supplierID) throws SQLException {
         String query = "SELECT 1 FROM Supplier WHERE supplierID = " + supplierID;
         ResultSet rs = DBManager.query(query);
